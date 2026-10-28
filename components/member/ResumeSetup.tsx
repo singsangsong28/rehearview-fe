@@ -64,8 +64,8 @@ export default function ResumeSetup({ context, brief, onBrief }: { context: Cont
       <div className="space-y-3">
         <h3 className="text-sm font-bold">3. 분석하기</h3>
         <p className="text-sm text-neutral-500">
-          서류{posting.trim() ? "와 공고" : ""}를 읽고 면접에 쓸 브리프로 정리해요. {posting.trim() ? "공고가 원하는 것과 내 서류를 비교해서 확인할 부분도 짚어 줘요. " : ""}몇 초에서 십여 초
-          걸려요.
+          서류{posting.trim() ? "와 공고" : ""}를 읽고 면접에 쓸 브리프로 정리해요. {posting.trim() ? "공고가 원하는 것과 내 서류를 비교해서 확인할 부분도 짚어 드려요. " : ""}보통 10~30초 걸리고, AI가 바쁠 때는
+          1분 넘게 걸릴 수 있어요.
         </p>
         <button
           type="button"
