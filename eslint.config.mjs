@@ -18,6 +18,7 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "public/**", // 외부에서 가져온 압축 파일(PDF 워커 등)은 검사하지 않는다
     ],
   },
 ];
