@@ -70,7 +70,7 @@ export default function PrivacyPage() {
       <LegalSection id="retention" title="3. 보유 및 이용 기간">
         <Ul>
           <li>회원 탈퇴 시 계정과 면접 기록 등 연결된 정보를 지체 없이 삭제합니다.</li>
-          <li>이용자가 &quot;내 면접&quot;에서 삭제한 면접 기록(질문, 답변, 리포트)은 즉시 삭제합니다.</li>
+          <li>이용자가 &quot;내 면접&quot;에서 삭제한 면접 기록(질문, 답변, 리포트)은 즉시 삭제합니다. (백업에 남은 사본은 7항 참고)</li>
           <li>관련 법령에 따라 보존해야 하는 정보가 있는 경우에는 그 기간 동안 별도로 보관한 뒤 파기합니다.</li>
         </Ul>
       </LegalSection>
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
               "방문자 수와 이용 현황 통계",
               "방문한 페이지와 시각, 브라우저·기기 종류, 대략적인 접속 지역, 쿠키로 부여되는 임의의 식별자",
               "미국 등 Google 데이터센터 · 이용자가 웹사이트에 접속할 때 브라우저에서 Google로 전송",
-              "Google Analytics의 데이터 보관 기간 설정에 따름",
+              "Google Analytics 이벤트 데이터 보관 기간을 2개월로 설정 (이후 자동 삭제)",
             ],
           ]}
         />
@@ -139,7 +139,7 @@ export default function PrivacyPage() {
             <b>면접 기록 삭제</b>: &quot;내 면접&quot; 화면에서 면접별로 삭제할 수 있습니다.
           </li>
           <li>
-            <b>계정 삭제(회원 탈퇴)</b>: 로그인한 뒤 <Link href="/account" className="text-violet-600 underline dark:text-violet-300">내 계정</Link> 화면에서 직접 삭제할 수 있으며, 삭제하면 모든 정보가 즉시 지워지고 되돌릴 수 없습니다.
+            <b>계정 삭제(회원 탈퇴)</b>: 로그인한 뒤 <Link href="/account" className="text-violet-600 underline dark:text-violet-300">내 계정</Link> 화면에서 직접 삭제할 수 있으며, 삭제하면 모든 정보가 즉시 지워지고 되돌릴 수 없습니다. 다만 백업에 남은 사본은 7항과 같이 최대 14일 뒤 삭제됩니다.
           </li>
           <li>
             <b>그 밖의 요청</b>: {LEGAL.contactEmail} 로 연락해 주시면 요구를 받은 날부터 10일 이내에 조치하고 결과를 알려 드립니다.
@@ -149,6 +149,10 @@ export default function PrivacyPage() {
 
       <LegalSection id="destroy" title="7. 파기 절차와 방법">
         <p>삭제 요청이나 탈퇴가 있으면 데이터베이스에서 해당 정보를 삭제하며, 삭제된 정보는 복구할 수 없습니다. 법령상 보존이 필요한 정보는 별도로 분리해 보관한 뒤 기간이 끝나면 파기합니다.</p>
+        <p>
+          장애에 대비해 데이터베이스를 매일 백업하며, 백업은 14일이 지나면 자동으로 삭제됩니다. 따라서 삭제하거나 탈퇴한 정보가 백업에는 <b>최대 14일</b> 남아 있을 수 있고, 백업은 운영자만 접근할 수
+          있는 서버에 보관합니다.
+        </p>
       </LegalSection>
 
       <LegalSection id="security" title="8. 개인정보의 안전성 확보 조치">
