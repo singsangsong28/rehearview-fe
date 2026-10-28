@@ -101,7 +101,7 @@ export default function TermsPage() {
 
       <LegalSection id="termination" title="제11조 (계정 삭제와 이용 제한)">
         <Ul>
-          <li>이용자는 언제든지 <Link href="/account" className="text-violet-600 underline dark:text-violet-300">내 계정</Link> 화면에서 계정을 삭제할 수 있으며, 삭제하면 모든 정보가 즉시 지워지고 되돌릴 수 없습니다.</li>
+          <li>이용자는 언제든지 <Link href="/account" className="text-violet-600 underline dark:text-violet-300">내 계정</Link> 화면에서 계정을 삭제할 수 있으며, 삭제하면 모든 정보가 즉시 지워지고 되돌릴 수 없습니다. 다만 장애에 대비한 백업에는 최대 14일 남을 수 있습니다.</li>
           <li>운영자는 이용자가 제7조를 어기거나 서비스 운영을 심각하게 방해하는 경우 사전 안내 후 이용을 제한하거나 계정을 정지할 수 있습니다. 긴급한 경우에는 먼저 제한하고 이유를 알립니다.</li>
         </Ul>
       </LegalSection>

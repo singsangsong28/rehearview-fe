@@ -30,7 +30,7 @@ export default function DeleteAccountForm() {
     <div className="rounded-2xl border border-red-500/30 p-6">
       <h2 className="font-bold text-red-600 dark:text-red-300">계정 삭제</h2>
       <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-        계정을 삭제하면 로그인 정보, 연결된 소셜 계정, 모든 면접 기록(질문, 답변, 리포트)이 <b>즉시 지워지고 되돌릴 수 없어요.</b> 필요한 기록은 미리 확인해 두세요.
+        계정을 삭제하면 로그인 정보, 연결된 소셜 계정, 모든 면접 기록(질문, 답변, 리포트)이 <b>즉시 지워지고 되돌릴 수 없어요.</b> 장애에 대비한 백업에는 최대 14일 남을 수 있어요. 필요한 기록은 미리 확인해 두세요.
       </p>
       <label className="mt-4 block text-sm font-medium">
         확인을 위해 &quot;{PHRASE}&quot;를 입력해 주세요
