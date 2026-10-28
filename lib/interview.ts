@@ -41,7 +41,8 @@ export const INTERVIEW_TURNS = 6;
 export const REPORT_AXES = ["직무 이해도", "근거와 구체성", "논리 구조", "전달력", "태도와 진정성", "질문 의도 파악"];
 
 export type Turn = { order: number; question: string; answer: string | null; kind: "MAIN" | "FOLLOW_UP" };
-export type Report = { scores: Record<string, number>; feedback: string };
+// modelAnswers: 질문별 모범 답변 예시 (이 기능 이전에 만든 리포트는 빈 배열)
+export type Report = { scores: Record<string, number>; feedback: string; modelAnswers: { order: number; answer: string }[] };
 export type InterviewData = {
   id: string;
   company: string;
