@@ -113,7 +113,7 @@ export default function InterviewRoom({ interview }: { interview: InterviewData 
           <p className="text-sm text-neutral-500">답변을 바탕으로 리포트를 만들어 드려요. 몇 초 걸릴 수 있어요.</p>
           <FormError message={error} />
           <button type="button" onClick={makeReport} disabled={busy === "report"} className={primaryButton}>
-            {busy === "report" ? "리포트를 만드는 중이에요..." : "리포트 만들기"}
+            {busy === "report" ? "리포트를 만드는 중이에요... (AI가 바쁘면 1분 넘게 걸려요)" : "리포트 만들기"}
           </button>
         </div>
       </>
@@ -272,7 +272,7 @@ export default function InterviewRoom({ interview }: { interview: InterviewData 
         {mic.interim && <p className="-mt-2 text-sm text-neutral-400">{mic.interim}</p>}
 
         <FormError message={error} />
-        {busy === "answer" && <p className="text-center text-sm text-neutral-500">면접관이 다음 질문을 준비하고 있어요... (몇 초 걸려요)</p>}
+        {busy === "answer" && <p className="text-center text-sm text-neutral-500">면접관이 다음 질문을 준비하고 있어요... (보통 몇 초, AI가 바쁠 때는 1분 넘게 걸릴 수 있어요. 창을 닫지 말고 기다려 주세요)</p>}
         {micBusy && <p className="text-center text-xs text-neutral-500">녹음 중에는 제출할 수 없어요. 먼저 &quot;멈추기&quot;를 눌러 주세요.</p>}
         <button type="button" onClick={submitAnswer} disabled={busy !== null || micBusy || !answer.trim()} className={`${primaryButton} w-full`}>
           {current.order >= INTERVIEW_TURNS ? "마지막 답변 완료" : "답변 완료"}
