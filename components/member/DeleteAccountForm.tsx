@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormError } from "@/components/common/form";
@@ -10,6 +11,7 @@ const PHRASE = "계정 삭제";
 // 회원 탈퇴. 되돌릴 수 없어서 문구를 직접 입력해야 버튼이 켜진다.
 export default function DeleteAccountForm() {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [typed, setTyped] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -22,6 +24,7 @@ export default function DeleteAccountForm() {
       setPending(false);
       return setError(result.error);
     }
+    queryClient.clear(); // 삭제된 계정의 캐시가 남지 않게 모두 비운다
     router.push("/");
     router.refresh(); // 서버 컴포넌트의 로그인 상태를 새로 읽는다
   }
