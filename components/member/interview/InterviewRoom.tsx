@@ -83,7 +83,7 @@ export default function InterviewRoom({ interview }: { interview: InterviewData 
     const result = await postJson<Report>(`/interviews/${interview.id}/report`, resume ? { resume } : {});
     setBusy(null);
     if (!result.ok) return setError(result.error);
-    setReport({ scores: result.data.scores, feedback: result.data.feedback });
+    setReport({ scores: result.data.scores, feedback: result.data.feedback, modelAnswers: result.data.modelAnswers ?? [] });
   }
 
   const header = (
