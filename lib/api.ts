@@ -1,7 +1,7 @@
 // 백엔드 호출. 브라우저에서는 next.config의 rewrites 덕분에 /api/* 로 같은 출처 요청이 된다.
 export type ApiResult<T> = { ok: true; data: T } | { ok: false; error: string };
 
-async function request<T>(method: "POST" | "DELETE", path: string, body?: object): Promise<ApiResult<T>> {
+async function request<T>(method: "GET" | "POST" | "DELETE", path: string, body?: object): Promise<ApiResult<T>> {
   try {
     const res = await fetch(`/api${path}`, {
       method,
@@ -20,5 +20,6 @@ async function request<T>(method: "POST" | "DELETE", path: string, body?: object
   }
 }
 
-export const postJson = <T = { message?: string }>(path: string, body: object) => request<T>("POST", path, body);
+export const getJson = <T>(path: string) => request<T>("GET", path);
+export const postJson =<T = { message?: string }>(path: string, body: object) => request<T>("POST", path, body);
 export const deleteRequest = (path: string) => request<Record<string, never>>("DELETE", path);
