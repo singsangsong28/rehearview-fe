@@ -5,6 +5,7 @@ import { REPORT_AXES, type Report, type Turn } from "@/lib/interview";
 export default function ReportView({ report, turns }: { report: Report; turns: Turn[] }) {
   const scores = REPORT_AXES.map((axis) => ({ axis, score: report.scores[axis] ?? 0 }));
   const average = scores.reduce((sum, s) => sum + s.score, 0) / scores.length;
+  const modelAnswers = new Map((report.modelAnswers ?? []).map((m) => [m.order, m.answer]));
 
   return (
     <div className="space-y-8">
@@ -33,7 +34,8 @@ export default function ReportView({ report, turns }: { report: Report; turns: T
       </section>
 
       <details className="rounded-2xl border border-black/10 p-5 dark:border-white/10">
-        <summary className="cursor-pointer font-medium">질문과 내 답변 보기</summary>
+        <summary className="cursor-pointer font-medium">질문, 내 답변, 모범 답변 보기</summary>
+        {modelAnswers.size > 0 && <p className="mt-3 text-xs text-neutral-500">모범 답변은 AI가 쓴 예시예요. 내 실제 경험에 맞게 바꿔서 말하고, [ ]로 표시된 부분은 직접 채워 보세요.</p>}
         <ol className="mt-4 space-y-5">
           {turns.map((t) => (
             <li key={t.order}>
@@ -41,6 +43,12 @@ export default function ReportView({ report, turns }: { report: Report; turns: T
                 Q{t.order}. {t.question}
               </p>
               <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{t.answer ?? "(답변 없음)"}</p>
+              {modelAnswers.get(t.order) && (
+                <div className="mt-3 rounded-xl bg-violet-50 p-4 dark:bg-violet-500/10">
+                  <p className="text-xs font-bold text-violet-700 dark:text-violet-300">모범 답변 예시</p>
+                  <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed text-neutral-700 dark:text-neutral-200">{modelAnswers.get(t.order)}</p>
+                </div>
+              )}
             </li>
           ))}
         </ol>
