@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+
+// 구글 애널리틱스 측정 ID(G-...). 없으면(로컬 개발 등) 추적 코드를 넣지 않는다.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   title: "Rehearview | 면접, 말로 먼저 연습하세요",
@@ -25,6 +29,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/fonts/pretendard/pretendardvariable-dynamic-subset.css" />
       </head>
       <body className="antialiased">{children}</body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
