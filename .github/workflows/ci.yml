@@ -1,0 +1,24 @@
+name: CI
+
+# PR에서 타입 체크, 린트, 빌드가 통과하는지 확인한다. 배포는 Vercel이 main 푸시마다 자동으로 한다.
+on:
+  pull_request:
+    branches: [dev, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run lint
+      - run: npm run build
