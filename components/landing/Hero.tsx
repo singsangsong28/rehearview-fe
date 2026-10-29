@@ -52,7 +52,7 @@ export default function Hero() {
         <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
           면접,
           <br />
-          <span className="bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">말로 먼저</span> 연습하세요
+          <span className="bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">AI와 실전처럼</span> 연습하세요
         </h1>
         <p className="mt-5 max-w-lg text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
           내 서류에서 질문이 나오고, 음성으로 답하면 꼬리질문과 리포트까지. 직군에 상관없이 누구나 쓸 수 있어요.

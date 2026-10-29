@@ -6,9 +6,17 @@ import "./globals.css";
 // 구글 애널리틱스 측정 ID(G-...). 없으면(로컬 개발 등) 추적 코드를 넣지 않는다.
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
+const TITLE = "Rehearview | 면접, AI와 실전처럼 연습하세요";
+const DESCRIPTION = "내 서류로 질문받고 음성으로 답하는 AI 모의면접";
+
 export const metadata: Metadata = {
-  title: "Rehearview | 면접, 말로 먼저 연습하세요",
-  description: "내 서류로 질문받고 음성으로 답하는 AI 모의면접",
+  // 링크 공유 이미지의 주소를 절대 경로로 만들 때 기준이 되는 주소
+  metadataBase: new URL("https://www.rehearview.shop"),
+  title: TITLE,
+  description: DESCRIPTION,
+  // 공유 이미지는 app/opengraph-image.png, app/twitter-image.png를 Next가 자동으로 붙인다.
+  openGraph: { title: TITLE, description: DESCRIPTION, siteName: "Rehearview", locale: "ko_KR", type: "website" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 // localStorage 접근이 막힌 환경에서도 페이지가 깨지지 않게 try/catch
